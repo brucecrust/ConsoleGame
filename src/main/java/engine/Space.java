@@ -1,3 +1,5 @@
+package engine;
+
 import utilities.RenderingUtility;
 
 public class Space {
@@ -6,7 +8,7 @@ public class Space {
 
     private final int maxColumns, maxRows;
 
-    public char[][] space;
+    public Sprite[][] space;
 
     // endregion
 
@@ -19,7 +21,7 @@ public class Space {
     public Space(int desiredColumns, int desiredRows) {
         maxColumns = desiredColumns;
         maxRows = desiredRows;
-        space = new char[maxColumns][maxRows];
+        space = new Sprite[maxColumns][maxRows];
 
         initializeSpace();
     }
@@ -31,12 +33,12 @@ public class Space {
     private void initializeSpace() {
         for (int column = 0; column < maxColumns; column++) {
             for (int row = 0; row < maxRows; row++) {
-                space[column][row] = ',';
+                space[column][row] = new Sprite(',');
             }
         }
     }
 
-    public Space modify(int column, int row, char sprite) {
+    public Space modify(int column, int row, Sprite sprite) {
         space[column][row] = sprite;
         return this;
     }
@@ -46,7 +48,7 @@ public class Space {
     // region | Rendering Methods --------------------------------------------------------------------------------------
 
     public void renderSpace() {
-        render.render2DCharArray(space);
+        RenderingUtility.render2DArray(space);
     }
 
     // endregion
