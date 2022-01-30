@@ -32,9 +32,7 @@ public class Engine {
     public void loop() {
         while (!player.lastCommand.equals("q")) {
             space.renderSpace();
-            player.userInput();
-
-            space.modify(player.position, player.sprite);
+            space.movePlayer(player);
         }
     }
 
