@@ -17,7 +17,8 @@ public class Engine {
     // region | Constructor --------------------------------------------------------------------------------------------
 
     public Engine() {
-        this.space = new Space(10, 10);
+        this.space = new Space(10, 10)
+                .withOuterWall();
         this.player = new Player(
                 "Test", new Sprite('P'), new Position(2, 2), 10, 10, 10);
         this.entities = new Entity[space.maxEntityAmount];
