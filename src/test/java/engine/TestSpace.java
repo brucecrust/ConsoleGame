@@ -1,7 +1,5 @@
 package engine;
 
-import engine.Space;
-import engine.Sprite;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import utilities.Position;

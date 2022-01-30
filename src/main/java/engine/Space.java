@@ -10,7 +10,8 @@ public class Space {
 
     private final int maxColumns, maxRows;
 
-    private Sprite defaultSprite = new Sprite(',');
+    private final Sprite defaultSprite = new Sprite(',');
+    private Sprite previousSprite;
 
     public final int maxEntityAmount;
 
@@ -42,6 +43,7 @@ public class Space {
     }
 
     public Space modify(Position position, Sprite sprite) {
+        previousSprite = new Sprite(space[position.x][position.y].sprite);
         space[position.y][position.x] = sprite;
         return this;
     }
@@ -49,7 +51,7 @@ public class Space {
     public void movePlayer(Player player) {
         Position previousPosition = new Position(player.position.x, player.position.y);
         player.userInput();
-        modify(previousPosition, defaultSprite);
+        modify(previousPosition, previousSprite);
         modify(player.position, player.sprite);
     }
 
