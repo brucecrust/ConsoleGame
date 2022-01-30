@@ -12,10 +12,6 @@ public class Space {
 
     // endregion
 
-    // region | Components ---------------------------------------------------------------------------------------------
-
-    RenderingUtility render = new RenderingUtility();
-
     // region | Constructor --------------------------------------------------------------------------------------------
 
     public Space(int desiredColumns, int desiredRows) {

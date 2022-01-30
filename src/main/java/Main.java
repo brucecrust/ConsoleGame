@@ -1,6 +1,6 @@
 // [x] TODO: Create a basic game map -- 2D array?
 // [x] TODO: Create Sprite class
-// [] TODO: Create Print/Rendering class
+// [x] TODO: Create Print/Rendering class
 // [] TODO: Create entities -- each entity will have a sprite
 // [] TODO: Create player class
 // [] TODO: Create movement in the player class
