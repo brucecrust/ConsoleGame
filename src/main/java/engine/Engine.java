@@ -33,6 +33,8 @@ public class Engine {
         while (!player.lastCommand.equals("q")) {
             space.renderSpace();
             player.userInput();
+
+            space.modify(player.position, player.sprite);
         }
     }
 
