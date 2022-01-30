@@ -6,7 +6,7 @@
     // TODO: Create movement in the player class
     // TODO: Create basic wall collision -- maybe?
     // TODO: Create entity/sprite collision
-// TODO: Enemy creation
+// TODO: Enemy/NPC creation
 // TODO: Create user input system
 // TODO: Combat logic
 // TODO: Create items?
@@ -15,9 +15,6 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.print("2 squared is: ");
 
-        Math math = new Math();
-        System.out.printf("%d%n", math.square(2));
     }
 }
