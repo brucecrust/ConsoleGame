@@ -1,3 +1,5 @@
+import utilities.RenderingUtility;
+
 public class Space {
 
     // region | Member Variables ---------------------------------------------------------------------------------------
@@ -7,6 +9,10 @@ public class Space {
     public char[][] space;
 
     // endregion
+
+    // region | Components ---------------------------------------------------------------------------------------------
+
+    RenderingUtility render = new RenderingUtility();
 
     // region | Constructor --------------------------------------------------------------------------------------------
 
@@ -30,17 +36,17 @@ public class Space {
         }
     }
 
+    public Space modify(int column, int row, char sprite) {
+        space[column][row] = sprite;
+        return this;
+    }
+
     // endregion
 
     // region | Rendering Methods --------------------------------------------------------------------------------------
 
     public void renderSpace() {
-        for (int column = 0; column < maxColumns; column++) {
-            for (int row = 0; row < maxRows; row++) {
-                System.out.printf(" %c ", space[column][row]);
-            }
-            System.out.println();
-        }
+        render.render2DCharArray(space);
     }
 
     // endregion
