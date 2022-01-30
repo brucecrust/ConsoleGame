@@ -1,5 +1,6 @@
 // TODO: Create a basic game map -- 2D array?
     // TODO: Game Map -- dynamically created
+// TODO: Create Print/Rendering class
 // TODO: Create Sprite class
 // TODO: Create entities -- each entity will have a sprite
 // TODO: Create player class
@@ -15,6 +16,7 @@
 public class Main {
 
     public static void main(String[] args) {
-
+        Space world = new Space(10, 10);
+        world.renderSpace();
     }
 }
