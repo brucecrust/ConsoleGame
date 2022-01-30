@@ -10,7 +10,8 @@ public class Space {
 
     // region | Member Variables ---------------------------------------------------------------------------------------
 
-    private final int maxColumns, maxRows;
+    public final int maxColumns, maxRows;
+    public final int outerColumnBounds, outerRowBounds;
 
     private final Sprite defaultSprite = new Sprite(',');
     private final Sprite wallSprite = new Sprite('#');
@@ -28,6 +29,8 @@ public class Space {
     public Space(int columns, int rows) {
         maxColumns = columns;
         maxRows = rows;
+        outerColumnBounds = maxColumns - 1;
+        outerRowBounds = maxRows - 1;
         maxEntityAmount =  maxColumns * maxRows;
         space = new Sprite[maxColumns][maxRows];
 
@@ -66,11 +69,11 @@ public class Space {
 
     public Space withOuterWall() {
         Arrays.fill(space[0], wallSprite);
-        Arrays.fill(space[maxColumns - 1], wallSprite);
+        Arrays.fill(space[outerColumnBounds], wallSprite);
 
         for (Sprite[] spriteArray : space) {
             spriteArray[0] = wallSprite;
-            spriteArray[maxRows - 1] = wallSprite;
+            spriteArray[outerRowBounds] = wallSprite;
         }
 
         return this;
