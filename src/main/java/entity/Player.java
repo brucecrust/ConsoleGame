@@ -1,5 +1,8 @@
 package entity;
 
+import engine.Sprite;
+import utilities.Position;
+
 import java.util.Scanner;
 
 public class Player extends Entity {
@@ -13,7 +16,10 @@ public class Player extends Entity {
 
     // region | Constructor --------------------------------------------------------------------------------------------
 
-    public Player(String name) {
+    public Player() {}
+
+    public Player(String name, Sprite sprite, Position position, int health, int strength, int defense) {
+        super(sprite, position, health, strength, defense);
         this.name = name;
     }
 
@@ -22,16 +28,12 @@ public class Player extends Entity {
     // region | Utility Methods ----------------------------------------------------------------------------------------
 
     public void move() {
-        userInput();
-
-        if (lastCommand == null) return;
-
         switch (lastCommand) {
-            case "w" -> position.set(0, -1);
-            case "s" -> position.set(0, 1);
-            case "a" -> position.set(-1, 0);
-            case "d" -> position.set(1, 0);
-            default -> position.set(0, 0);
+            case "w" -> position.set(position.x, position.y - 1);
+            case "s" -> position.set(position.x, position.y + 1);
+            case "a" -> position.set(position.x - 1, position.y);
+            case "d" -> position.set(position.x + 1, position.y);
+            default -> position.set(position.x, position.y);
         }
     }
 

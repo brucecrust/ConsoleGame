@@ -22,12 +22,12 @@ public class Entity {
 
     public Entity() {}
 
-    public Entity(Sprite sprite, Position position, int health, int strength, int defenese) {
+    public Entity(Sprite sprite, Position position, int health, int strength, int defense) {
         this.sprite = sprite;
         this.position = position;
         this.health = health;
         this.strength = strength;
-        this.defense = defenese;
+        this.defense = defense;
 
         isAlive = health > 0;
     }
@@ -36,8 +36,8 @@ public class Entity {
 
     // region | Utility Methods ----------------------------------------------------------------------------------------
 
-    public void setHealth(int desiredHealth) {
-        health = desiredHealth;
+    public void setHealth(int health) {
+        this.health = health;
         isAlive = health > 0;
     }
 }
