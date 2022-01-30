@@ -7,9 +7,18 @@ public class RenderingUtility {
     // region | Rendering Methods --------------------------------------------------------------------------------------
 
     public static < E > void render2DArray(E[][] array) {
-        for (int column = 0; column < array.length; column++) {
-            for (int row = 0; row < array[column].length; row++) {
-                System.out.printf(" %h ", array[column][row]);
+        for (E[] i : array) {
+            for (E j : i) {
+                System.out.printf(" %h ", j);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void render2DSpriteArray(Sprite[][] array) {
+        for (Sprite[] spriteArray : array) {
+            for (Sprite sprite : spriteArray) {
+                System.out.printf(" %c ", sprite.sprite);
             }
             System.out.println();
         }

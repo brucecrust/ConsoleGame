@@ -1,5 +1,6 @@
 package engine;
 
+import utilities.Position;
 import utilities.RenderingUtility;
 
 public class Space {
@@ -34,8 +35,8 @@ public class Space {
         }
     }
 
-    public Space modify(int column, int row, Sprite sprite) {
-        space[column][row] = sprite;
+    public Space modify(Position position, Sprite sprite) {
+        space[position.y][position.x] = sprite;
         return this;
     }
 
@@ -44,7 +45,7 @@ public class Space {
     // region | Rendering Methods --------------------------------------------------------------------------------------
 
     public void renderSpace() {
-        RenderingUtility.render2DArray(space);
+        RenderingUtility.render2DSpriteArray(space);
     }
 
     // endregion
