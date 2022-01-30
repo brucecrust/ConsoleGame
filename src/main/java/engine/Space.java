@@ -9,15 +9,18 @@ public class Space {
 
     private final int maxColumns, maxRows;
 
+    public final int maxEntityAmount;
+
     public Sprite[][] space;
 
     // endregion
 
     // region | Constructor --------------------------------------------------------------------------------------------
 
-    public Space(int desiredColumns, int desiredRows) {
-        maxColumns = desiredColumns;
-        maxRows = desiredRows;
+    public Space(int columns, int rows) {
+        maxColumns = columns;
+        maxRows = rows;
+        maxEntityAmount =  maxColumns * maxRows;
         space = new Sprite[maxColumns][maxRows];
 
         initializeSpace();

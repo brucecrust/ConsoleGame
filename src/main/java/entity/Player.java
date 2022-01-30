@@ -2,7 +2,7 @@ package entity;
 
 import engine.Sprite;
 import utilities.Position;
-
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player extends Entity {
@@ -10,7 +10,9 @@ public class Player extends Entity {
     // region | Member Variables ---------------------------------------------------------------------------------------
 
     String name;
-    String lastCommand;
+    public String lastCommand = "";
+    private final String[] movementCommands = {"w", "s", "d", "a"};
+    private final String[] utilityCommands = {"q"};
 
     // endregion
 
@@ -27,6 +29,10 @@ public class Player extends Entity {
 
     // region | Utility Methods ----------------------------------------------------------------------------------------
 
+    public void handleInput() {
+        if (Arrays.asList(movementCommands).contains(lastCommand)) move();
+    }
+
     public void move() {
         switch (lastCommand) {
             case "w" -> position.set(position.x, position.y - 1);
@@ -40,6 +46,7 @@ public class Player extends Entity {
     public void userInput() {
         Scanner scanner = new Scanner(System.in);
         lastCommand = scanner.nextLine();
+        handleInput();
     }
 
     // endregion
