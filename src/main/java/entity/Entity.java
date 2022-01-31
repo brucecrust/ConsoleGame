@@ -11,6 +11,7 @@ public class Entity {
     public Position position;
     public Position previousPosition;
 
+    public String name;
     public int health;
     public int strength;
     public int defense;
@@ -23,7 +24,7 @@ public class Entity {
 
     public Entity() {}
 
-    public Entity(Sprite sprite, Position position, int health, int strength, int defense) {
+    public Entity(String name, Sprite sprite, Position position, int health, int strength, int defense) {
         this.sprite = sprite;
         this.position = position;
         this.health = health;
@@ -41,4 +42,6 @@ public class Entity {
         this.health = health;
         isAlive = health > 0;
     }
+
+    // endregion
 }

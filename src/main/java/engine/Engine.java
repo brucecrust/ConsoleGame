@@ -18,10 +18,11 @@ public class Engine {
     // region | Constructor --------------------------------------------------------------------------------------------
 
     public Engine() {
-        this.space = new Space(25, 25)
-                .withOuterWall();
+
         this.player = new Player(
                 "Test", new Sprite('P'), new Position(2, 2), 10, 10, 10);
+        this.space = new Space(25, 25, player)
+                .withOuterWall();
         this.entities = new Entity[space.maxEntityAmount];
 
         space.modify(player.position, player.sprite);
@@ -36,7 +37,7 @@ public class Engine {
             RenderingUtility.clearScreen();
 
             space.renderSpace();
-            space.movePlayer(player);
+            space.movePlayer();
         }
     }
 

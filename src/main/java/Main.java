@@ -7,9 +7,9 @@
 // [x] TODO: Modify the map to display player and entities
 // [x] TODO: Create engine class, which will handle the game loop
 // [x] TODO: Integrate movement into spaces
-// [] TODO: Create wall outline method for space
-// [] TODO: Create basic wall collision -- maybe?
-// [] TODO: Create entity/sprite collision
+// [x] TODO: Create wall outline method for space
+// [x] TODO: Create basic wall collision -- maybe?
+// [x] TODO: Create entity/sprite collision
 // [] TODO: Create enemies/npcs
 // [] TODO: Create user input system
 // [] TODO: Combat logic

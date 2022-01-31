@@ -9,7 +9,6 @@ public class Player extends Entity {
 
     // region | Member Variables ---------------------------------------------------------------------------------------
 
-    public String name;
     public String lastCommand = "";
 
     private final String[] movementCommands = {"w", "s", "d", "a"};
@@ -22,8 +21,7 @@ public class Player extends Entity {
     public Player() {}
 
     public Player(String name, Sprite sprite, Position position, int health, int strength, int defense) {
-        super(sprite, position, health, strength, defense);
-        this.name = name;
+        super(name, sprite, position, health, strength, defense);
     }
 
     // endregion

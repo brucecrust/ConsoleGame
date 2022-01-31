@@ -15,8 +15,9 @@ public class Space {
 
     private final Sprite defaultSprite = new Sprite(',');
     private final Sprite wallSprite = new Sprite('#');
-
     private Sprite previousSprite;
+
+    private Player player;
 
     public final int maxEntityAmount;
 
@@ -26,13 +27,15 @@ public class Space {
 
     // region | Constructor --------------------------------------------------------------------------------------------
 
-    public Space(int columns, int rows) {
+    public Space(int columns, int rows, Player player) {
         maxColumns = columns;
         maxRows = rows;
         outerColumnBounds = maxColumns - 1;
         outerRowBounds = maxRows - 1;
         maxEntityAmount =  maxColumns * maxRows;
         space = new Sprite[maxColumns][maxRows];
+
+        this.player = player;
 
         initializeSpace();
     }
@@ -56,11 +59,11 @@ public class Space {
         return this;
     }
 
-    public void movePlayer(Player player) {
+    public void movePlayer() {
         Position previousPosition = new Position(player.position.x, player.position.y);
         player.userInput();
 
-        if (!collidedWithWall(player)) {
+        if (!collidedWithWall()) {
             modify(previousPosition, previousSprite);
             modify(player.position, player.sprite);
         }
@@ -70,14 +73,22 @@ public class Space {
 
     // region | Collision Handling -------------------------------------------------------------------------------------
 
-    private boolean collidedWithWall(Player player) {
-        if (space[player.position.y][player.position.x] == wallSprite) {
+    private boolean collidedWithWall() {
+        if (willCollide(wallSprite)) {
             player.position = player.previousPosition;
 
             return true;
         }
 
         return false;
+    }
+
+    private boolean collidedWithSprite(Sprite sprite) {
+        return willCollide(sprite);
+    }
+
+    private boolean willCollide(Sprite sprite) {
+        return space[player.position.y][player.position.x] == sprite;
     }
 
     // endregion
