@@ -28,14 +28,26 @@ public class Player extends Entity {
 
     // region | Utility Methods ----------------------------------------------------------------------------------------
 
-    public void handleInput() {
+    private void handleInput() {
         if (Arrays.asList(movementCommands).contains(lastCommand)) move();
     }
 
-    public void move() {
+    public void userInput() {
+        Scanner scanner = new Scanner(System.in);
+        lastCommand = scanner.nextLine();
+        handleInput();
+    }
+
+    // endregion
+
+    // region | Action Methods -----------------------------------------------------------------------------------------
+
+    public void combat() {
+
+    }
+
+    private void move() {
         switch (lastCommand) {
-
-
             case "w" -> {
                 previousPosition = new Position(position.x, position.y);
                 position.set(position.x, position.y - 1);
@@ -56,12 +68,6 @@ public class Player extends Entity {
                 position.set(position.x, position.y);
             }
         }
-    }
-
-    public void userInput() {
-        Scanner scanner = new Scanner(System.in);
-        lastCommand = scanner.nextLine();
-        handleInput();
     }
 
     // endregion

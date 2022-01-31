@@ -10,8 +10,8 @@ public class Sprite {
 
     // region | Constructor --------------------------------------------------------------------------------------------
 
-    public Sprite(char desiredSprite) {
-        sprite = desiredSprite;
+    public Sprite(char sprite) {
+        this.sprite = sprite;
     }
 
     // engregion

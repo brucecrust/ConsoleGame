@@ -9,8 +9,8 @@ public class Engine {
 
     // region | Member Variables ---------------------------------------------------------------------------------------
 
-    private Space space;
-    private Player player;
+    private final Space space;
+    private final Player player;
     private Entity[] entities;
 
     // endregion
@@ -21,9 +21,13 @@ public class Engine {
 
         this.player = new Player(
                 "Test", new Sprite('P'), new Position(2, 2), 10, 10, 10);
-        this.space = new Space(25, 25, player)
-                .withOuterWall();
+
         this.entities = new Entity[space.maxEntityAmount];
+
+        this.space = new Space(25, 25)
+                .withPlayer(player)
+                .withEntities(entities)
+                .withOuterWall();
 
         space.modify(player.position, player.sprite);
 

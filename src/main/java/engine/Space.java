@@ -1,5 +1,6 @@
 package engine;
 
+import entity.Entity;
 import entity.Player;
 import utilities.Position;
 import utilities.RenderingUtility;
@@ -18,6 +19,7 @@ public class Space {
     private Sprite previousSprite;
 
     private Player player;
+    private Entity[] entities;
 
     public final int maxEntityAmount;
 
@@ -27,15 +29,13 @@ public class Space {
 
     // region | Constructor --------------------------------------------------------------------------------------------
 
-    public Space(int columns, int rows, Player player) {
+    public Space(int columns, int rows) {
         maxColumns = columns;
         maxRows = rows;
         outerColumnBounds = maxColumns - 1;
         outerRowBounds = maxRows - 1;
         maxEntityAmount =  maxColumns * maxRows;
         space = new Sprite[maxColumns][maxRows];
-
-        this.player = player;
 
         initializeSpace();
     }
@@ -67,11 +67,17 @@ public class Space {
             modify(previousPosition, previousSprite);
             modify(player.position, player.sprite);
         }
+
+        if ()
     }
 
     // endregion
 
     // region | Collision Handling -------------------------------------------------------------------------------------
+
+    private boolean collidedWithEntity() {
+
+    }
 
     private boolean collidedWithWall() {
         if (willCollide(wallSprite)) {
@@ -104,6 +110,16 @@ public class Space {
             spriteArray[outerRowBounds] = wallSprite;
         }
 
+        return this;
+    }
+
+    public Space withEntities(Entity[] entities) {
+        this.entities = entities;
+        return this;
+    }
+
+    public Space withPlayer(Player player) {
+        this.player = player;
         return this;
     }
 

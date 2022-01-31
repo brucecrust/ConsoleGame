@@ -1,6 +1,5 @@
 package engine;
 
-import entity.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import utilities.Position;
@@ -11,7 +10,7 @@ public class TestSpace {
     void test_modifySpace() {
         System.out.println("Verify that the sprite is updated in the space when the space is modified");
 
-        Space space = new Space(2, 2, new Player());
+        Space space = new Space(2, 2);
         Sprite actualSprite = space.modify(new Position(1, 1), new Sprite('$')).space[1][1];
 
         Assertions.assertEquals('$', actualSprite.sprite);
@@ -21,7 +20,7 @@ public class TestSpace {
     void test_withOuterWall() {
         System.out.println("Verify that the outer edges of a space are filled with the appropriate sprite");
 
-        Space space = new Space(5, 5, new Player())
+        Space space = new Space(5, 5)
                 .withOuterWall();
 
         for (int i = 0; i < space.space[0].length; i++) {
