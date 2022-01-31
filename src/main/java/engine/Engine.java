@@ -3,6 +3,7 @@ package engine;
 import entity.Entity;
 import entity.Player;
 import utilities.Position;
+import utilities.RenderingUtility;
 
 public class Engine {
 
@@ -17,7 +18,7 @@ public class Engine {
     // region | Constructor --------------------------------------------------------------------------------------------
 
     public Engine() {
-        this.space = new Space(10, 10)
+        this.space = new Space(25, 25)
                 .withOuterWall();
         this.player = new Player(
                 "Test", new Sprite('P'), new Position(2, 2), 10, 10, 10);
@@ -32,6 +33,8 @@ public class Engine {
 
     public void loop() {
         while (!player.lastCommand.equals("q")) {
+            RenderingUtility.clearScreen();
+
             space.renderSpace();
             space.movePlayer(player);
         }
