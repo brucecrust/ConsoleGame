@@ -60,13 +60,24 @@ public class Space {
         Position previousPosition = new Position(player.position.x, player.position.y);
         player.userInput();
 
-        // Handle wall collision
+        if (!collidedWithWall(player)) {
+            modify(previousPosition, previousSprite);
+            modify(player.position, player.sprite);
+        }
+    }
+
+    // endregion
+
+    // region | Collision Handling -------------------------------------------------------------------------------------
+
+    private boolean collidedWithWall(Player player) {
         if (space[player.position.y][player.position.x] == wallSprite) {
             player.position = player.previousPosition;
+
+            return true;
         }
 
-        modify(previousPosition, previousSprite);
-        modify(player.position, player.sprite);
+        return false;
     }
 
     // endregion
