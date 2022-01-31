@@ -68,15 +68,22 @@ public class Space {
             modify(player.position, player.sprite);
         }
 
-        if ()
+        Entity entityToEncounter = checkForEntityCollision();
+        if (entityToEncounter != null) player.combat(entityToEncounter);
     }
 
     // endregion
 
     // region | Collision Handling -------------------------------------------------------------------------------------
 
-    private boolean collidedWithEntity() {
+    private Entity checkForEntityCollision() {
+        for (Entity entity : entities) {
+            if (player.hasSamePosition(entity.position)) {
+                return entity;
+            }
+        }
 
+        return null;
     }
 
     private boolean collidedWithWall() {
@@ -115,11 +122,15 @@ public class Space {
 
     public Space withEntities(Entity[] entities) {
         this.entities = entities;
+        for (Entity entity : entities) {
+            modify(entity.position, entity.sprite);
+        }
         return this;
     }
 
     public Space withPlayer(Player player) {
         this.player = player;
+        modify(player.position, player.sprite);
         return this;
     }
 

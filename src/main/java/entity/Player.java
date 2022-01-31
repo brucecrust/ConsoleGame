@@ -42,8 +42,8 @@ public class Player extends Entity {
 
     // region | Action Methods -----------------------------------------------------------------------------------------
 
-    public void combat() {
-
+    public void combat(Entity enemy) {
+        System.out.println("You're in combat!");
     }
 
     private void move() {

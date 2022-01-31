@@ -20,16 +20,21 @@ public class Engine {
     public Engine() {
 
         this.player = new Player(
-                "Test", new Sprite('P'), new Position(2, 2), 10, 10, 10);
+                "Test", new Sprite('P'), new Position(5, 4), 50, 10, 10);
 
-        this.entities = new Entity[space.maxEntityAmount];
+        Entity blueFrog = new Entity(
+                "Blue Frog", new Sprite('F'), new Position(5, 5), 15, 10, 10);
+        Entity redFrog = new Entity(
+                "Red Frog", new Sprite('F'), new Position(10, 5), 15, 10, 10);
+        Entity greenFrog = new Entity(
+                "Green Frog", new Sprite('F'), new Position(4, 9), 15, 10, 10);
 
-        this.space = new Space(25, 25)
+        this.entities = new Entity[] {blueFrog, redFrog, greenFrog};
+
+        this.space = new Space(20, 20)
                 .withPlayer(player)
                 .withEntities(entities)
                 .withOuterWall();
-
-        space.modify(player.position, player.sprite);
 
         loop();
     }

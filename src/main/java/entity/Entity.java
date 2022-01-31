@@ -43,5 +43,9 @@ public class Entity {
         isAlive = health > 0;
     }
 
+    public boolean hasSamePosition(Position position) {
+        return this.position.x == position.x && this.position.y == position.y;
+    }
+
     // endregion
 }
