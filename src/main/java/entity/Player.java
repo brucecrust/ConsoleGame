@@ -9,8 +9,9 @@ public class Player extends Entity {
 
     // region | Member Variables ---------------------------------------------------------------------------------------
 
-    String name;
+    public String name;
     public String lastCommand = "";
+
     private final String[] movementCommands = {"w", "s", "d", "a"};
     private final String[] utilityCommands = {"q"};
 
@@ -35,11 +36,27 @@ public class Player extends Entity {
 
     public void move() {
         switch (lastCommand) {
-            case "w" -> position.set(position.x, position.y - 1);
-            case "s" -> position.set(position.x, position.y + 1);
-            case "a" -> position.set(position.x - 1, position.y);
-            case "d" -> position.set(position.x + 1, position.y);
-            default -> position.set(position.x, position.y);
+
+
+            case "w" -> {
+                previousPosition = new Position(position.x, position.y);
+                position.set(position.x, position.y - 1);
+            }
+            case "s" -> {
+                previousPosition = new Position(position.x, position.y);
+                position.set(position.x, position.y + 1);
+            }
+            case "a" -> {
+                previousPosition = new Position(position.x, position.y);
+                position.set(position.x - 1, position.y);
+            }
+            case "d" -> {
+                previousPosition = new Position(position.x, position.y);
+                position.set(position.x + 1, position.y);
+            }
+            default -> {
+                position.set(position.x, position.y);
+            }
         }
     }
 

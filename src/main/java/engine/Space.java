@@ -59,6 +59,12 @@ public class Space {
     public void movePlayer(Player player) {
         Position previousPosition = new Position(player.position.x, player.position.y);
         player.userInput();
+
+        // Handle wall collision
+        if (space[player.position.y][player.position.x] == wallSprite) {
+            player.position = player.previousPosition;
+        }
+
         modify(previousPosition, previousSprite);
         modify(player.position, player.sprite);
     }

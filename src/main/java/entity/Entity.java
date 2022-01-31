@@ -9,6 +9,7 @@ public class Entity {
 
     public Sprite sprite;
     public Position position;
+    public Position previousPosition;
 
     public int health;
     public int strength;
