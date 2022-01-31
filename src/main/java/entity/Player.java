@@ -46,7 +46,7 @@ public class Player extends Entity {
         System.out.println("You're in combat!");
     }
 
-    private void move() {
+    public void move() {
         switch (lastCommand) {
             case "w" -> {
                 previousPosition = new Position(position.x, position.y);
